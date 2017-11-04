@@ -1,7 +1,6 @@
 import importlib
 from importlib.abc import Finder
 import sys
-import logging
 
 
 class LoggingImporter(Finder):
@@ -10,8 +9,5 @@ class LoggingImporter(Finder):
             msg = "importing {} on {} by LoggingImporter".format(name, path)
         else:
             msg = "importing {} by LoggingImporter".format(name)
-        # logging.info(msg)
         print(msg)
-        # return None
-
-sys.meta_path.insert(0, LoggingImporter())
+        return None 
